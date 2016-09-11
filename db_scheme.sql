@@ -110,6 +110,8 @@ Create Table MedicineComponent
 	Constraint FK_MedicineComponent_Medicine Foreign Key(MedicineRef) References Medicine(Id),
 	Constraint FK_MedicineComponent_Component Foreign Key(ComponentRef) References Medicine(Id)
 )
+
+Go
 --//////////////////////////////////////////////////
 Create Table Contraindication
 (
@@ -118,4 +120,14 @@ Create Table Contraindication
 	Constraint PK_Contraindication Primary Key(PatientRef, MedicineRef),
 	Constraint FK_Contraindication_Patient Foreign Key(PatientRef) References Patient(Id),
 	Constraint FK_Contraindication_Medicine Foreign Key(MedicineRef) References Medicine(Id)
+)
+
+Go
+--//////////////////////////////////////////////////
+Create Type TManufacturer as Table
+(
+	[Name] nvarchar(100),
+	[Country] nvarchar(100),
+	[Telefone] nvarchar(50),
+	[Email] nvarchar(50)
 )
