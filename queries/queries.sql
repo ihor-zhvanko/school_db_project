@@ -85,14 +85,12 @@ Select * From (
 --9-ієрархічний SELECT‑запит
 --Найти з яких компонентів складається лікарський засіб
 
-Declare @medicineId int = 4;
-
 With MedicalComponents(Id, Name, ComponentRef) As
 (
 	Select m.Id, m.Name, mc.ComponentRef
-	From Medicine m Join MedicineComponent mc
+	From Medicine m Left Join MedicineComponent mc
 	On m.Id = mc.MedicineRef
-	Where mc.MedicineRef = @medicineId
+	Where m.Id = 4
 
 	UNION ALL
 
