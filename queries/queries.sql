@@ -107,6 +107,17 @@ Group By Id, Name
 
 --10-SELECT‑запит типу CrossTab (Pivot)
 
+Select (cast(Id as nvarchar) + LastName + FirstName + MiddleName) as [Doctor Name],
+[2000], [2001], [2002], [2003], [2004], [2005],[2006], [2007],[2008], [2009], [2010], [2011], [2012], [2013], [2014], [2015], [2016]
+From
+(Select Doctor.Id, LastName, FirstName, MiddleName, Year(FromDate) as [Year], PatientRef 
+From DiseaseHistory join Doctor on DiseaseHistory.DoctorRef = Doctor.Id) As SourceTable
+Pivot
+(
+	Count(PatientRef)
+	For [Year] In([2000], [2001], [2002], [2003], [2004], [2005], [2006], [2007],[2008], [2009], [2010], [2011], [2012], [2013], [2014], [2015], [2016])
+) As pvt
+
 --11-UPDATE на базі однієї таблиці.
 
 select * from Patient
