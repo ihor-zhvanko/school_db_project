@@ -34,4 +34,3 @@ select * From Contraindication Where PatientRef = 30
 
 --30
 
-Select dbo.fnIsContraindicated(30, 6)
