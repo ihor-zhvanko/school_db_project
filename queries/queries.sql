@@ -52,7 +52,7 @@ AND Grade in(61, 39)
 Select * From Doctor
 Where Exists(select * from DiseaseHistory Where Doctor.Id = DoctorRef)
 
---Максимальна оцінка для доктора
+--Доктора, що отримували оцінку вище середньої від загальної кількості
 Select Distinct Doctor.*, Grade From Doctor join DiseaseHistory
 On Doctor.Id = DiseaseHistory.DoctorRef
 Where DiseaseHistory.Grade > ANY(Select AVG(Grade) From DiseaseHistory )
