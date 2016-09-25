@@ -66,3 +66,6 @@ Revoke Update On dbo.Medicine To Editor
 Revoke Delete On dbo.Medicine To Editor
 
 Go
+
+Alter Role Moderator Drop Member ihor_moderator_filler
+Alter Role Filler    Drop Member ihor_moderator_filler

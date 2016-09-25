@@ -7,8 +7,7 @@ Declare DoctorCursor Cursor Local For
 Declare @currentId int;
 
 Open DoctorCursor
-Fetch Next From DoctorCursor
-Into @currentId
+Fetch Next From DoctorCursor Into @currentId
 
 While @@FETCH_STATUS = 0
 Begin
